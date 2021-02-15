@@ -2,7 +2,7 @@
   "name": "omdb",
   "version": "1.0.0",
   "description": "OMDB app",
-  "main": "index.js",
+  "main": "app.js",
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
@@ -16,7 +16,8 @@
     "pug": "^3.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles",
+    "e2e": "cypress open",
     "start": "nodemon app.js",
     "repair": "fuser -k 3000/tcp"
   },
@@ -30,5 +31,10 @@
   "bugs": {
     "url": "https://github.com/jfeito93/OMDB/issues"
   },
-  "homepage": "https://github.com/jfeito93/OMDB#readme"
+  "homepage": "https://github.com/jfeito93/OMDB#readme",
+  "devDependencies": {
+    "cypress": "^6.4.0",
+    "jest": "^26.6.3",
+    "jsdoc": "^3.6.6"
+  }
 }

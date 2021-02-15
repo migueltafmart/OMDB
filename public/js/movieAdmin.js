@@ -14,7 +14,6 @@ function check (e) {
   e.preventDefault();
   for(i = 0; i < fields.length; i++){
     if (fields[i].value){
-       console.log(fields[i].value)
     }else{
       fields[i].classList.toggle('error');
       return
@@ -26,6 +25,7 @@ function check (e) {
         body: JSON.stringify({
           Title: title.value,
           Year: year.value,
+          Genre: genre.value,
           Runtime: duration.value,
           Director: director.value,
           Actors: cast.value,
@@ -37,10 +37,7 @@ function check (e) {
           "Content-Type": "application/json",
         },
       })
-      .then(res => res.json())
-      .then(() => {
-        window.location.assign('/movies')
-      })
+      .then(window.location.assign('/movies'))
       .catch((error) => console.error("Error:", error));
 }
 

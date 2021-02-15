@@ -50,7 +50,6 @@ const checkPW = (event) => {
       })
       .then(res => res.json())
       .then((data) => {
-        console.log(data);
         if (data.status) {
           window.location.assign('/');
         }else{
@@ -58,9 +57,8 @@ const checkPW = (event) => {
           userPW.classList.toggle('error');
         }   
       })
-      .catch((error) => console.error("Error:", error));
+      .catch((error) => console.log("Error:", error));
 
-    //? Después del POST a /login res.redirect a /dashboard
   } else {
     //* Si la contraseña no es válida pedimos que la escriban de nuevo
     userEmail.classList.toggle('error');
@@ -96,11 +94,9 @@ async function onSignIn(googleUser) {
           })
           .then(res => res.json())
           .then((data) => {
-            console.log(data);
             if (data.status) {
               signOut()
               .then(() => window.location.assign('/'))
-
             }
             //TODO instrucción al CSS
           })
